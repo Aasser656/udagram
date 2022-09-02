@@ -34,7 +34,7 @@ app.get("/filteredimage",async (req,res)=>{
   if(isImage(image_url)){
 filterImageFromURL(image_url).then((filteredpath)=>{
   res.sendFile(filteredpath);
-  res.on("Done",()=>{
+  res.on("finish",()=>{
     deleteLocalFiles([filteredpath])
   })
 })
